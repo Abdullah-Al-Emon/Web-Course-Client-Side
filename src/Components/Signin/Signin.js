@@ -57,7 +57,7 @@ const Signin = () =>
                                 <div className="mt-4 mb-2 sm:mb-4">
                                     <button
                                         type="submit"
-                                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide border bg-slate-50 transition duration-200 rounded shadow-md hover:bg-purple-400 focus:shadow-outline focus:outline-none"
+                                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium text-black tracking-wide border bg-slate-50 transition duration-200 rounded shadow-md hover:bg-purple-400 focus:shadow-outline focus:outline-none"
                                     >
                                         <FaGoogle className='mr-2'></FaGoogle>
                                         Google Sign In
@@ -66,7 +66,7 @@ const Signin = () =>
                                 <div className="mt-4 mb-2 sm:mb-4">
                                     <button
                                         type="submit"
-                                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide border bg-slate-50 transition duration-200 rounded shadow-md hover:bg-purple-400 focus:shadow-outline focus:outline-none"
+                                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium text-black tracking-wide border bg-slate-50 transition duration-200 rounded shadow-md hover:bg-purple-400 focus:shadow-outline focus:outline-none"
                                     >
                                         <FaGithub className='mr-2'></FaGithub>
                                         Github Sign In

@@ -20,7 +20,7 @@
   .dark-mode {
     background-color: #090101;
     color: #fff;
-    height: 100%;
+    /* height: 100%; */
     transition: background-color 0.25s ease-in-out;
   }
   

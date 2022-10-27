@@ -192,7 +192,7 @@ const Header = () =>
                           to="/signin"
                           aria-label="Sign in"
                           title="Sign in"
-                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-500"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-500"
                         >
                           Sign in
                         </Link>
