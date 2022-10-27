@@ -1,84 +1,103 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import img1 from '../../assets/Images/coding.png'
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import './Header.css'
 
-const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    return (
-        <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+const Header = () =>
+{
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { darkMode, setDarkMode } = useContext(AuthContext)
+  return (
+    <div className={darkMode ? 'bg-slate-50 text-gray-700' : 'bg-black text-gray-100'}>
+      <div className="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
-          <a
-            href="/"
+          <Link
+            to="/"
             aria-label="Company"
             title="Company"
             className="inline-flex items-center"
           >
             <img src={img1} className='w-11' alt="" />
-            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+            <span className="ml-2 text-xl  font-bold tracking-wide uppercase">
               Web Course
             </span>
-          </a>
+          </Link>
+          <li className='lg:hidden flex items-center'>
+            <div className="container">
+              <div className="switch-checkbox">
+                <label className="switch">
+                  <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
+                  <span className="slider round"> </span>
+                </label>
+              </div>
+            </div>
+          </li>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
-              <a
-                href="/"
+              <Link
+                to="/"
                 aria-label="Our product"
                 title="Our product"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                className="font-medium  tracking-wide transition-colors duration-200 hover:text-purple-400"
               >
                 Courses
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/"
+              <Link
+                to="/faq"
                 aria-label="Our product"
                 title="Our product"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                className="font-medium tracking-wide transition-colors duration-200 hover:text-purple-400"
               >
                 FAQ
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/"
+              <Link
+                to="/blog"
                 aria-label="Product pricing"
                 title="Product pricing"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                className="font-medium tracking-wide transition-colors duration-200 hover:text-purple-400"
               >
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/"
-                aria-label="About us"
-                title="About us"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
-              >
-                About us
-              </a>
+              <div >
+                <div className="container">
+                  <div className="switch-checkbox">
+                    <label className="switch">
+                      <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
+                      <span className="slider round"> </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
           <ul className="flex items-center hidden space-x-8 lg:flex">
-          <li>
-            <a
-              href="/"
-              aria-label="Sign in"
-              title="Sign in"
-              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-500"
-            >
-              Sign in
-            </a>
-          </li>
             <li>
-              <a
-                href="/"
+              <Link
+                to="/signin"
+                aria-label="Sign in"
+                title="Sign in"
+                className="font-medium tracking-wide transition-colors duration-200 hover:text-purple-500"
+              >
+                Sign in
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/signup"
                 className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
                 aria-label="Sign up"
                 title="Sign up"
               >
                 Sign up
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="lg:hidden">
@@ -108,17 +127,17 @@ const Header = () => {
                 <div className="p-5 bg-white border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <a
-                        href="/"
+                      <Link
+                        to="/"
                         aria-label="Company"
                         title="Company"
                         className="inline-flex items-center"
                       >
                         <img src={img1} className='w-11' alt="" />
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                            web course
+                          web course
                         </span>
-                      </a>
+                      </Link>
                     </div>
                     <div>
                       <button
@@ -139,64 +158,54 @@ const Header = () => {
                   <nav>
                     <ul className="space-y-4">
                       <li>
-                        <a
-                          href="/"
+                        <Link
+                          to="/"
                           aria-label="Our product"
                           title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
                         >
                           Courses
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/"
+                        <Link
+                          to="/faq"
                           aria-label="Our product"
                           title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
                         >
                           FAQ
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/"
+                        <Link
+                          to="/blog"
                           aria-label="Product pricing"
                           title="Product pricing"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
                         >
                           Blog
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="/"
-                          aria-label="About us"
-                          title="About us"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                        <Link
+                          to="/signin"
+                          aria-label="Sign in"
+                          title="Sign in"
+                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-500"
                         >
-                          About us
-                        </a>
+                          Sign in
+                        </Link>
                       </li>
                       <li>
-                      <a
-                        href="/"
-                        aria-label="Sign in"
-                        title="Sign in"
-                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-500"
-                      >
-                        Sign in
-                      </a>
-                    </li>
-                      <li>
-                        <a
-                          href="/"
+                        <Link
+                          to="/signup"
                           className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
                           aria-label="Sign up"
                           title="Sign up"
                         >
                           Sign up
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </nav>
@@ -206,7 +215,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default Header;
