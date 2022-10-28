@@ -10,7 +10,7 @@ const Course = () =>
                 <LeftSideCourseName></LeftSideCourseName>
             </div>
             <div className=''>
-                <Outlet></Outlet>
+                <Outlet/>
             </div>
         </div>
     );

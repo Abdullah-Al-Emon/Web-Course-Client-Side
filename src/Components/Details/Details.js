@@ -7,8 +7,7 @@ const Details = () => {
     console.log(courseDetails)
     return (
         <div >
-            <h2>This is Course {courseDetails.length}</h2>
-            <div className='grid grid-cols-3 gap-10 mx-10 my-10'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 lg:gap-10 md:gap-5 grid-cols-1 gap-4 mx-10 my-10'>
             {
                 courseDetails.map(detail => <CourseCard
                 key={detail._id}
