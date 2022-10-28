@@ -11,8 +11,9 @@ const PrivateRoute = ({children}) => {
         return <span>Loading</span>
     }
     if(!user){
-        return <Navigate
+        return <Navigate to='/signin' state={{from: location}} replace></Navigate>
     }
+    return children;
 };
 
 export default PrivateRoute;

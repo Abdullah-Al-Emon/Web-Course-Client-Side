@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Details from '../Details/Details';
 import LeftSideCourseName from '../LeftSideCourseName/LeftSideCourseName';
 
 const Course = () =>

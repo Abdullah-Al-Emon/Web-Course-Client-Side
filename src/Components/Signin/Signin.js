@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
@@ -10,6 +10,9 @@ const Signin = () =>
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider();
     const [error, setError] = useState('')
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const { signIn, googleLogIn } = useContext(AuthContext)
 
 
@@ -27,7 +30,9 @@ const Signin = () =>
                 console.log(user)
                 form.reset()
                 if (user.emailVerified) {
-                    toast.success('Your email is Sign In')
+                    navigate(from, {replace: true})
+                }else{
+                    toast.success('Your email is not verified. please verify your email address')
                 }
                 setError('')
 
