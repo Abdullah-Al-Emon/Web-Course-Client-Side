@@ -1,8 +1,60 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const Signup = () =>
 {
+    const [error, setError] = useState('')
+    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext)
+
+    const handleSubmit = (e) =>
+    {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, photoURL, email, password)
+
+        createUser(email, password)
+            .then(result =>
+            {
+                const user = result.user;
+                setError('')
+                console.log(user)
+                form.reset()
+                handleUpdateUserProfile(name, photoURL)
+                handleEmailVerification();
+                toast.success('Please Check your email address spam.')
+            })
+            .catch(error =>
+            {
+                console.log(error)
+                setError(error)
+            })
+    }
+
+    const handleEmailVerification = () =>
+    {
+        verifyEmail()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) =>
+    {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
+
     return (
         <div className=" bg-opacity-75">
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -12,7 +64,7 @@ const Signup = () =>
                             <h3 className="mb-4 text-gray-900 text-xl font-semibold sm:text-center sm:mb-6 sm:text-3xl">
                                 Sign up
                             </h3>
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <div className="mb-1 sm:mb-2">
                                     <label
                                         htmlFor="name"
@@ -22,9 +74,9 @@ const Signup = () =>
                                     </label>
                                     <input
                                         placeholder="Enter Your Full Name"
-                                        required
+                                        // required
                                         type="text"
-                                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white text-black border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                                         id="name"
                                         name="name"
                                     />
@@ -38,9 +90,9 @@ const Signup = () =>
                                     </label>
                                     <input
                                         placeholder="Enter Your PhotoURL"
-                                        required
+                                        // required
                                         type="text"
-                                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                                         id="photoURL"
                                         name="photoURL"
                                     />
@@ -56,7 +108,7 @@ const Signup = () =>
                                         placeholder="Enter Your E-mail"
                                         required
                                         type="text"
-                                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                                         id="email"
                                         name="email"
                                     />
@@ -72,10 +124,13 @@ const Signup = () =>
                                         placeholder="Enter Your Password"
                                         required
                                         type="password"
-                                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                                         id="password"
                                         name="password"
                                     />
+                                </div>
+                                <div className='text-red-400'>
+                                    {error}
                                 </div>
                                 <div className="mt-4 mb-2 sm:mb-4">
                                     <button

@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { RouterProvider } from 'react-router-dom';
 import './App.css';
 import { AuthContext } from './Context/AuthProvider/AuthProvider';
@@ -9,6 +10,7 @@ function App() {
   return (
     <div className={darkMode ? "dark-mode" : "light-mode"}>
      <RouterProvider router={routes}></RouterProvider>
+     <Toaster></Toaster>
     </div>
   );
 }

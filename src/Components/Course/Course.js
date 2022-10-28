@@ -1,9 +1,16 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
-const Course = () => {
+const Course = () =>
+{
     return (
-        <div>
-            <h2>This Course</h2>
+        <div className='flex md:flex-row flex-col'>
+            <div className='w-96'>
+                this
+            </div>
+            <div className='w-full'>
+                <Outlet></Outlet>
+            </div>
         </div>
     );
 };

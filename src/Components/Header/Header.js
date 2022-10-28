@@ -8,7 +8,14 @@ import './Header.css'
 const Header = () =>
 {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { darkMode, setDarkMode } = useContext(AuthContext)
+  const { darkMode, setDarkMode, user, Logout } = useContext(AuthContext)
+
+  const handleLogOut = () =>
+  {
+    Logout()
+      .then(() => { })
+      .catch(error => console.error(error))
+  }
   return (
     <div className={darkMode ? 'bg-slate-50 text-gray-700' : 'bg-black text-gray-100'}>
       <div className="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -79,24 +86,52 @@ const Header = () =>
             </li>
           </ul>
           <ul className="flex items-center hidden space-x-8 lg:flex">
+            {
+              user?.uid ?
+                <>
+                  <li>
+                    <Link
+                      to="/signin"
+                      aria-label="Sign in"
+                      title="Sign in"
+                      className="font-medium tracking-wide transition-colors duration-200 hover:text-purple-500"
+                      onClick={handleLogOut}
+                    >
+                      Log Out
+                    </Link>
+                  </li>
+                </>
+                :
+                <>
+                  <li>
+                    <Link
+                      to="/signin"
+                      aria-label="Sign in"
+                      title="Sign in"
+                      className="font-medium tracking-wide transition-colors duration-200 hover:text-purple-500"
+                    >
+                      Sign in
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/signup"
+                      className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                      aria-label="Sign up"
+                      title="Sign up"
+                    >
+                      Sign up
+                    </Link>
+                  </li>
+                </>
+            }
             <li>
-              <Link
-                to="/signin"
-                aria-label="Sign in"
-                title="Sign in"
-                className="font-medium tracking-wide transition-colors duration-200 hover:text-purple-500"
-              >
-                Sign in
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/signup"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                Sign up
+              <Link>
+                {
+                  user?.photoURL ?
+                    <img src={user?.photoURL} alt='' className='h-9 rounded-[50%]' />
+                    : <p></p>
+                }
               </Link>
             </li>
           </ul>
@@ -187,24 +222,52 @@ const Header = () =>
                           Blog
                         </Link>
                       </li>
+                      {
+                        user?.uid ?
+                          <>
+                            <li>
+                              <Link
+                                to="/signin"
+                                aria-label="Sign in"
+                                title="Sign in"
+                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-500"
+                                onClick={handleLogOut}
+                              >
+                                Log Out
+                              </Link>
+                            </li>
+                          </>
+                          :
+                          <>
+                            <li>
+                              <Link
+                                to="/signin"
+                                aria-label="Sign in"
+                                title="Sign in"
+                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-500"
+                              >
+                                Sign in
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                to="/signup"
+                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                                aria-label="Sign up"
+                                title="Sign up"
+                              >
+                                Sign up
+                              </Link>
+                            </li>
+                          </>
+                      }
                       <li>
-                        <Link
-                          to="/signin"
-                          aria-label="Sign in"
-                          title="Sign in"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-500"
-                        >
-                          Sign in
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/signup"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-500 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-                          aria-label="Sign up"
-                          title="Sign up"
-                        >
-                          Sign up
+                        <Link>
+                          {
+                            user?.photoURL ?
+                              <img src={user?.photoURL} alt='' className='h-9 rounded-[50%]' />
+                              : <p></p>
+                          }
                         </Link>
                       </li>
                     </ul>
