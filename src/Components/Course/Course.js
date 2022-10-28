@@ -1,14 +1,15 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import LeftSideCourseName from '../LeftSideCourseName/LeftSideCourseName';
 
 const Course = () =>
 {
     return (
         <div className='flex md:flex-row flex-col'>
-            <div className='w-96'>
-                this
+            <div className=''>
+                <LeftSideCourseName></LeftSideCourseName>
             </div>
-            <div className='w-full'>
+            <div className=''>
                 <Outlet></Outlet>
             </div>
         </div>

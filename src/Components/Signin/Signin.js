@@ -29,6 +29,7 @@ const Signin = () =>
                 if (user.emailVerified) {
                     toast.success('Your email is Sign In')
                 }
+                setError('')
 
             })
             .catch(error =>
@@ -62,7 +63,6 @@ const Signin = () =>
             .then((result) =>
             {
                 const user = result.user;
-
                 console.log(user)
             }).catch((error) =>
             {

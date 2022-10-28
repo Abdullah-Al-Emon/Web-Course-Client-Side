@@ -42,6 +42,7 @@ const Header = () =>
             </div>
           </li>
           <ul className="flex items-center hidden space-x-8 lg:flex">
+
             <li>
               <Link
                 to="/"
@@ -129,7 +130,9 @@ const Header = () =>
               <Link>
                 {
                   user?.photoURL ?
-                    <img src={user?.photoURL} alt='' className='h-9 rounded-[50%]' />
+                    <button className='tooltip tooltip-left' data-tip={user.displayName}>
+                      <img src={user?.photoURL} alt='' className='h-9 rounded-[50%]' />
+                    </button>
                     : <p></p>
                 }
               </Link>
