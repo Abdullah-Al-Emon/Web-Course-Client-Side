@@ -6,11 +6,12 @@ import CourseDetails from "../Components/CourseDetails/CourseDetails";
 import Details from "../Components/Details/Details";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import { Faq } from "../Components/FAQ/FAQ";
-import Home from "../Components/Home/Home";
+// import Home from "../Components/Home/Home";
 import Premium from "../Components/Premium/Premium";
 import Signin from "../Components/Signin/Signin";
 import Signup from "../Components/Signup/Signup";
 import Main from "../Layout/Main";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
 export const routes = createBrowserRouter([
@@ -42,7 +43,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/detail/:id',
-                element: <Premium></Premium>,
+                element: <PrivateRoute><Premium></Premium></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://web-course-server.vercel.app/details/${params.id}`)
             },
             {
