@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# WEB COURSES
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site: [Web Courses](https://web-courses-a1f9f.web.app/).
 
-## Available Scripts
+Private Client Repo: [Web Corses Code](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-Abdullah-Al-Emon).
 
-In the project directory, you can run:
+Private Server Repo: [Server Code](https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-Abdullah-Al-Emon).
 
-### `npm start`
+## Header
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+There are 5 route sections in the header section. And a logo is the name of a website. After that there are courses, FAQs, blogs, and there is a toggle for turning the background black and white, and there is also a toggle for Sign in and signUP. If signed in then a route called logout will appear and the profile picture will appear. If profile picture is clicked then that profile name will show in tooltip.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Courses
 
-### `npm test`
+This course route has 6 course sections and each course section has 3 courses. And every course card has details name button. And clicking on that button will open a whole page about that course. Erb that page course has absolutely everything. And if you click on Download PDF, the PDF will be downloaded. And if you click Get Premium below, it will ask you to Sign in, then the purchase page will take you to another page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### FAQ
 
-### `npm run build`
+FAQ is on route. There are 4 questions answered about the course.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Blog
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The blog route contains the answers to the 4 questions asked in the assignment.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Sign In
 
-### `npm run eject`
+Click on sign in right then it will ask you to sign in with email and password. And if you want, you can sign in with Google and GitHub. And if you are not signed in, click on create a new account and it will take you to the page to create a new account.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Sign Up
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+There is a form on the sign up route. In that form there is the full name, picture URL, email and password of the person who will be signed up, then the email should be verified by email. After that click on sign in route. You can sign in.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Used
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* REACT
+* Tailwind (KitWind, daisyUi)
+* React icon, React PDF
+* Firebase Authentication
+ 

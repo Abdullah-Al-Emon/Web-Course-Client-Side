@@ -6,6 +6,7 @@ import CourseDetails from "../Components/CourseDetails/CourseDetails";
 import Details from "../Components/Details/Details";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import { Faq } from "../Components/FAQ/FAQ";
+import Home from "../Components/Home/Home";
 // import Home from "../Components/Home/Home";
 import Premium from "../Components/Premium/Premium";
 import Signin from "../Components/Signin/Signin";
@@ -20,13 +21,12 @@ export const routes = createBrowserRouter([
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
         children: [
-            // {
-            //     path: '/',
-            //     element: <Home></Home>,
-            //     loader: () => fetch(`https://web-course-server.vercel.app/details`)
-            // },
             {
                 path: '/',
+                element: <Home></Home>
+            },
+            {
+                path: '/course',
                 element: <Course></Course>,
                 children: [
                     {

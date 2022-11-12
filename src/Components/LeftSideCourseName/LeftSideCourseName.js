@@ -15,7 +15,7 @@ const LeftSideCourseName = () =>
     }, [])
     return (
         <div className='shadow-[0_0px_35px_rgba(100,95,90,0.8)] p-10 h-full'>
-            <div className=''>
+            <div className='text-center'>
                 {
                     courses.map(course => <p className='mb-3' key={course.id}>
                         <button className="btn btn-glass w-44" >

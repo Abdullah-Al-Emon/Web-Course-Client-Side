@@ -1,6 +1,7 @@
 import { useContext } from 'react';
-import img1 from '../assets/Images/coding.png'
-import { AuthContext } from '../Context/AuthProvider/AuthProvider';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import img1 from '../../assets/Images/coding.png'
+
 export const Footer = () =>
 {
     const { darkMode } = useContext(AuthContext)

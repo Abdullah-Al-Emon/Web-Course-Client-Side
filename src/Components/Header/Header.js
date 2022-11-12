@@ -50,6 +50,16 @@ const Header = () =>
                 title="Our product"
                 className="font-medium  tracking-wide transition-colors duration-200 hover:text-purple-400"
               >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/course/01"
+                aria-label="Our product"
+                title="Our product"
+                className="font-medium  tracking-wide transition-colors duration-200 hover:text-purple-400"
+              >
                 Courses
               </Link>
             </li>
@@ -76,12 +86,14 @@ const Header = () =>
             <li>
               <div >
                 <div className="container">
+                  <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
                   <div className="switch-checkbox">
                     <label className="switch">
                       <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
                       <span className="slider round"> </span>
                     </label>
                   </div>
+                  <span style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</span>
                 </div>
               </div>
             </li>
@@ -198,6 +210,16 @@ const Header = () =>
                       <li>
                         <Link
                           to="/"
+                          aria-label="Our product"
+                          title="Our product"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
+                        >
+                          Home
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/course/01"
                           aria-label="Our product"
                           title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400"
