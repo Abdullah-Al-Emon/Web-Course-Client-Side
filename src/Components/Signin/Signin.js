@@ -54,7 +54,7 @@ const Signin = () =>
             .then((result) =>
             {
                 const user = result.user;
-
+                toast.success('Google Sign In')
                 console.log(user)
             }).catch((error) =>
             {
@@ -68,6 +68,7 @@ const Signin = () =>
             .then((result) =>
             {
                 const user = result.user;
+                toast.success("Google Sign In")
                 console.log(user)
             }).catch((error) =>
             {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import img1 from '../../assets/Images/coding.png'
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
@@ -13,11 +14,24 @@ const Header = () =>
   const handleLogOut = () =>
   {
     Logout()
-      .then(() => { })
+      .then(() =>
+      {
+        toast.success('Sign Out Complete.', {
+          style: {
+            border: '1px solid #713200',
+            padding: '16px',
+            color: '#713200',
+          },
+          iconTheme: {
+            primary: '#713200',
+            secondary: '#FFFAEE',
+          },
+        });
+      })
       .catch(error => console.error(error))
   }
   return (
-    <div className={darkMode ? 'bg-slate-50 text-gray-700' : 'bg-black text-gray-100'}>
+    <div className={darkMode ? 'bg-slate-50 text-gray-700' : 'bg-slate-900 text-gray-100'}>
       <div className="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <Link
@@ -83,7 +97,7 @@ const Header = () =>
                 Blog
               </Link>
             </li>
-            <li>
+            {/* <li>
               <div >
                 <div className="container">
                   <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
@@ -96,7 +110,7 @@ const Header = () =>
                   <span style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</span>
                 </div>
               </div>
-            </li>
+            </li> */}
           </ul>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             {
