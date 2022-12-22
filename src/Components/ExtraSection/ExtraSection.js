@@ -15,7 +15,7 @@ const ExtraSection = () =>
                         accusantium doloremque rem aperiam, eaque ipsa quae.
                     </p>
                 </div>
-                <div class="grid max-w-screen-md gap-10 md:grid-cols-2 sm:mx-auto">
+                <div  data-aos="zoom-in-down" class="grid max-w-screen-md gap-10 md:grid-cols-2 sm:mx-auto">
                     <div>
                         <div class="p-8 bg-gray-900 rounded">
                             <div class="mb-4 text-center">
