@@ -45,7 +45,7 @@ const Header = () =>
               Web Course
             </span>
           </Link>
-          <li className='lg:hidden flex items-center'>
+          {/* <li className='lg:hidden flex items-center'>
             <div className="container">
               <div className="switch-checkbox">
                 <label className="switch">
@@ -54,7 +54,7 @@ const Header = () =>
                 </label>
               </div>
             </div>
-          </li>
+          </li> */}
           <ul className="flex items-center hidden space-x-8 lg:flex">
 
             <li>
